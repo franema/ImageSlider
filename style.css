@@ -1,0 +1,40 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.slider {
+   display: grid;
+   grid-template: 1fr / repeat(5, 100%);
+   width: 100%;
+   justify-items: center;
+   transition: all 0.5s;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.image {
+    width: 75%;
+    padding: 0 3%;
+}
+
+.image img {
+    width: 100%;
+}
+
+button {
+    z-index: 1;
+    padding: 1%;
+}
