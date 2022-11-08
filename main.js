@@ -7,6 +7,7 @@ const sliderControl = (() => {
     const $nextButton = document.querySelector(".next")
     const $previousButton = document.querySelector(".previous")
     const $radio = document.querySelectorAll(`[type="radio"]`)
+    const $images = document.querySelectorAll(".image")
 
     //Bind Events
     $nextButton.addEventListener("click", showNextImage)
@@ -19,7 +20,7 @@ const sliderControl = (() => {
         $radio.forEach((radio) => radio.checked = false)
         $slider.style.transform += `translatex(-${$slider.offsetWidth}px)`
         counter++
-        if (counter === 5) {
+        if (counter === $images.length) {
             counter = 0
             $slider.style.transform = `translatex(0px)`
         }
@@ -32,20 +33,20 @@ const sliderControl = (() => {
         $slider.style.transform += `translatex(${$slider.offsetWidth}px)`
         counter--
         if (counter === -1) {
-            counter = 4
-            $slider.style.transform = `translatex(-${$slider.offsetWidth * 4}px)`
+            counter = ($images.length - 1)
+            $slider.style.transform = `translatex(-${$slider.offsetWidth * ($images.length - 1)}px)`
         }
         $radio[counter].checked = true
         restartInterval()
     }
 
     function selectImage(e) {
-        counter = e.target.id 
+        counter = e.target.id
         $slider.style.transform = `translatex(-${$slider.offsetWidth * e.target.id}px)`
         restartInterval()
     }
 
-    function restartInterval () {
+    function restartInterval() {
         clearInterval(imgInterval)
         imgInterval = setInterval(showNextImage, 5000)
     }
