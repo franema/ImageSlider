@@ -10,6 +10,12 @@ html {
 }
 
 .container {
+    display: grid;
+    justify-items: center;
+    gap: 2%;
+}
+
+.slider_container {
     display: flex;
 }
 
@@ -37,4 +43,8 @@ html {
 button {
     z-index: 1;
     padding: 1%;
+}
+
+.radio_buttons {
+    display: flex;
 }
